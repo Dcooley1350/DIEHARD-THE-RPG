@@ -34,13 +34,68 @@ namespace rpg.DIEHARD
 
         public static void Navigation(McClane newHero)
         {
-            Console.WriteLine("--------------------------------");
             Console.WriteLine("MCCLANE: What do you want to do next, " + newHero.Name + "?");
             Console.WriteLine("1. Explore the Zoo");
             Console.WriteLine("2. Check Backpack");
             Console.WriteLine("3. Check Health");
-            Console.WriteLine("4. View Animals Found"); 
+            Console.WriteLine("4. View Animals Found");
+            Console.WriteLine("--------------------------------");
+            int userInput = int.Parse(Console.ReadLine());
+            if (userInput == 1)
+            {
+                ExploreZoo();
+            }
+            else if (userInput == 2)
+            {
+                newHero.CheckBackpack(newHero);
+            }
+            else if (userInput == 3)
+            {
+                newHero.CheckHealth(newHero);
+            }
+            else if (userInput == 4)
+            {
+                newHero.FoundAnimals(newHero);
+            }
+            else 
+            {
+                Console.WriteLine("MCCLANE: Quit wasting time " + newHero.Name + "! Enter a valid number!");
+                McClane.Navigation(newHero);
+            }
+        }
 
+        public static void ExploreZoo()
+        {
+
+        }
+
+        public void CheckBackpack(McClane newHero)
+        {
+            Console.WriteLine("--------------------------------");
+            foreach (string item in newHero.Items)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("--------------------------------");
+            Navigation(newHero);
+        }
+
+        public void CheckHealth(McClane newHero)
+        {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("Health: " + newHero.Health);
+            Console.WriteLine("--------------------------------");
+            Navigation(newHero);
+        }
+
+        public void FoundAnimals(McClane newHero)
+        {
+            foreach (string animals in newHero.AnimalsFound)
+            {
+                Console.WriteLine(animals);
+            }
+            Console.WriteLine("--------------------------------");
+            Navigation(newHero);
         }
     }
 }
