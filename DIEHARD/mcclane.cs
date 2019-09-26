@@ -43,7 +43,7 @@ namespace rpg.DIEHARD
             int userInput = int.Parse(Console.ReadLine());
             if (userInput == 1)
             {
-                ExploreZoo();
+                ExploreZoo(newHero);
             }
             else if (userInput == 2)
             {
@@ -64,9 +64,48 @@ namespace rpg.DIEHARD
             }
         }
 
-        public static void ExploreZoo()
+        public static void ExploreZoo(McClane newHero)
         {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("Great idea, " + newHero.Name + "! What part of the zoo do you want to explore?");
+            Console.WriteLine("1. Big Cat Exhibit");
+            Console.WriteLine("2. Food Court");
+            Console.WriteLine("3. Gift Shop");
+            Console.WriteLine("4. Aquarium");
+            Console.WriteLine("5. Atrium");
+            Console.WriteLine("6. Return To Main Menu");
+            Console.WriteLine("--------------------------------");
+            string zooExplore = Console.ReadLine();
 
+            if (zooExplore == "1")
+            {
+                newHero.ExploreBigCat(newHero);
+            }
+            else if (zooExplore =="2")
+            {
+                ExploreFoodCourt(newHero);
+            }
+            else if (zooExplore =="3")
+            {
+                ExploreGiftShop(newHero);
+            }
+            else if (zooExplore =="4")
+            {
+                ExploreAquarium(newHero);
+            }
+            else if (zooExplore =="5")
+            {
+                ExploreAtrium(newHero);
+            }
+            else if (zooExplore =="6")
+            {
+                McClane.Navigation(newHero);
+            }
+            else
+            {
+                Console.WriteLine("MCCLANE: Quit wasting time " + newHero.Name + "! Enter a valid number!");
+                McClane.ExploreZoo(newHero);
+            }
         }
 
         public void CheckBackpack(McClane newHero)
@@ -96,6 +135,80 @@ namespace rpg.DIEHARD
             }
             Console.WriteLine("--------------------------------");
             Navigation(newHero);
+        }
+
+        public void HealthDown(McClane newHero)
+        {
+            newHero.Health -= 10;
+        }
+
+        public void HealthUp(McClane newHero)
+        {
+            newHero.Health += 10;
+        }
+
+        public void ExploreBigCat(McClane newHero)
+        {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("**You and John make your way towards the Big Cat Exhibit. The main entrance glass is shattered and covers the floor.**");
+            Console.WriteLine("MCCLANE: Glad I wore my shoes today.");
+            Console.ReadKey(true);
+            Console.WriteLine("**You and John navigate through the glass. You notice the interior walls of the exhibit are covered in claw marks.**");
+            Console.WriteLine("MCCLANE: SHIT THOSE ARE SOME BIG KITTENS! I'D BE LION IF I SAID I WASN'T A LITTLE NERVOUS " + newHero.Name + "!");
+            Console.WriteLine("MCCLANE: What should we do?");
+            Console.WriteLine("--------------------------------");
+            string bigCatInput = Console.ReadLine();
+            Console.WriteLine("1. Use an Item");
+            Console.WriteLine("2. Fight the Lion");
+            Console.WriteLine("3. Sneak up on the Tiger");
+            Console.WriteLine("4. Leave Big Cat Exhibit");
+            Console.WriteLine("--------------------------------");
+
+            if (bigCatInput == "1")
+            {
+                Item.UseItem(newHero);
+                string item = Item.UseItem(newHero);
+                
+                if (item == )
+
+
+            }
+            else if (bigCatInput == "2")
+            {
+
+            }
+            else if (bigCatInput == "2")
+            {
+
+            }
+            else if (bigCatInput == "2")
+            {
+
+            }
+            else{
+                Console.WriteLine("MCCLANE: Quit wasting time " + newHero.Name + "! Enter a valid number!");
+                McClane.ExploreZoo(newHero);
+            }
+        }
+        public void ExploreFoodCourt(McClane newHero)
+        {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("");
+        }
+        public void ExploreGiftShop(McClane newHero)
+        {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("");
+        }
+        public void ExploreAquarium(McClane newHero)
+        {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("");
+        }
+        public void ExploreAtrium(McClane newHero)
+        {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("");
         }
     }
 }
