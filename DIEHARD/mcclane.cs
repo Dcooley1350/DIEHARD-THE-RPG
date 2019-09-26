@@ -79,27 +79,32 @@ namespace rpg.DIEHARD
 
             if (zooExplore == "1")
             {
-                newHero.ExploreBigCat(newHero);
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("**You and John make your way towards the Big Cat Exhibit. The main entrance glass is shattered and covers the floor.**");
+            Console.WriteLine("MCCLANE: Glad I wore my shoes today.");
+            Console.WriteLine("**You and John navigate through the glass. You notice the interior walls of the exhibit are covered in claw marks.**");
+            Console.WriteLine("MCCLANE: SHIT THOSE ARE SOME BIG KITTENS! I'D BE LION IF I SAID I WASN'T A LITTLE NERVOUS " + newHero.Name + "!");
+            McClane.ExploreBigCat(newHero);
             }
             else if (zooExplore =="2")
             {
-                ExploreFoodCourt(newHero);
+                // McClane.ExploreFoodCourt(newHero);
             }
             else if (zooExplore =="3")
             {
-                ExploreGiftShop(newHero);
+                // McClane.ExploreGiftShop(newHero);
             }
             else if (zooExplore =="4")
             {
-                ExploreAquarium(newHero);
+                // McClane.ExploreAquarium(newHero);
             }
             else if (zooExplore =="5")
             {
-                ExploreAtrium(newHero);
+                // McClane.ExploreAtrium(newHero);
             }
             else if (zooExplore =="6")
             {
-                McClane.Navigation(newHero);
+                // McClane.Navigation(newHero);
             }
             else
             {
@@ -139,77 +144,302 @@ namespace rpg.DIEHARD
 
         public void HealthDown(McClane newHero)
         {
-            newHero.Health -= 10;
+            newHero.Health -= 20;
         }
 
         public void HealthUp(McClane newHero)
         {
-            newHero.Health += 10;
+            newHero.Health += 20;
         }
 
-        public void ExploreBigCat(McClane newHero)
+        public static void ExploreBigCat(McClane newHero)
         {
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("**You and John make your way towards the Big Cat Exhibit. The main entrance glass is shattered and covers the floor.**");
-            Console.WriteLine("MCCLANE: Glad I wore my shoes today.");
-            Console.ReadKey(true);
-            Console.WriteLine("**You and John navigate through the glass. You notice the interior walls of the exhibit are covered in claw marks.**");
-            Console.WriteLine("MCCLANE: SHIT THOSE ARE SOME BIG KITTENS! I'D BE LION IF I SAID I WASN'T A LITTLE NERVOUS " + newHero.Name + "!");
             Console.WriteLine("MCCLANE: What should we do?");
             Console.WriteLine("--------------------------------");
-            string bigCatInput = Console.ReadLine();
             Console.WriteLine("1. Use an Item");
             Console.WriteLine("2. Fight the Lion");
             Console.WriteLine("3. Sneak up on the Tiger");
             Console.WriteLine("4. Leave Big Cat Exhibit");
             Console.WriteLine("--------------------------------");
+            string input = Console.ReadLine();
 
-            if (bigCatInput == "1")
+            if (input == "1")
             {
-                Item.UseItem(newHero);
-                string item = Item.UseItem(newHero);
+                string userItem = Item.UseItem(newHero);
+                if (userItem == "Energy Bar")
+                {
+                    newHero.HealthUp(newHero);
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("Energy bar restores health by 20 points.");
+                    Console.WriteLine("Health: " + newHero.Health);
+                    Console.WriteLine("--------------------------------");
+                    McClane.ExploreBigCat(newHero);
+                }
+                else if (userItem == "Can of Cat Food") 
+                {
+                    Console.WriteLine("**You open the can of cat food and slide it along the floor. Both Leroy the Lion and Tonya the Tiger pounce towards the can. They knock their heads together, rendering both unconcious and neutralized. John throws one animal over each shoulder and takes them back to their respective cages.**");
+
+                    Console.WriteLine("**Leroy the Lion and Tonya the Tiger have been added to your Found Animals list.**");
+                }
+                else
+                {
+                    Console.WriteLine("**Item uneffective in this situation.**");
+                    McClane.ExploreBigCat(newHero);
+                }
+             }
+            else if (input == "2")
+            {
+                Console.WriteLine("**You put up your hands and atttempt to box Leroy the Lion. The lion soundly defeats you in the first round. You escape before he kills you but take a significant beating. (-20 health)**");
+                newHero.HealthDown(newHero);
+                Console.WriteLine(newHero.Name +"'s Health: " + newHero.Health);
+                Console.WriteLine("MCCLANE: You got some balls on you kid, I'll give you that. Maybe let's try another tactic.");
+                McClane.ExploreBigCat(newHero);
                 
-                if (item == )
-
+            }
+            else if (input == "3")
+            {
+                Console.WriteLine("**You grab that tail and hold on for dear life when the tiger takes off running.");
+                Console.WriteLine("MCCLANE: (Laughing Histerically) YIPPE KAYAE MOTHERFUCKER!!");
+                Console.WriteLine("**You let go and escape with your life but you lose 20 health.");
+                newHero.HealthDown(newHero);
+                Console.WriteLine(newHero.Name +"'s Health: " + newHero.Health);
+                McClane.ExploreBigCat(newHero);
 
             }
-            else if (bigCatInput == "2")
+            else if (input == "4")
             {
-
-            }
-            else if (bigCatInput == "2")
-            {
-
-            }
-            else if (bigCatInput == "2")
-            {
-
+                McClane.ExploreZoo(newHero);
             }
             else{
                 Console.WriteLine("MCCLANE: Quit wasting time " + newHero.Name + "! Enter a valid number!");
                 McClane.ExploreZoo(newHero);
             }
         }
-        public void ExploreFoodCourt(McClane newHero)
-        {
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("");
-        }
-        public void ExploreGiftShop(McClane newHero)
-        {
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("");
-        }
-        public void ExploreAquarium(McClane newHero)
-        {
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("");
-        }
-        public void ExploreAtrium(McClane newHero)
-        {
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("");
-        }
+        // public void ExploreFoodCourt(McClane newHero)
+        // {
+        //     Console.WriteLine("MCCLANE: What should we do?");
+        //     Console.WriteLine("--------------------------------");
+        //     Console.WriteLine("1. Use an Item");
+        //     Console.WriteLine("2. Fight the Lion");
+        //     Console.WriteLine("3. Sneak up on the Tiger");
+        //     Console.WriteLine("4. Leave Big Cat Exhibit");
+        //     Console.WriteLine("--------------------------------");
+        //     string input = Console.ReadLine();
+
+        //     if (input == "1")
+        //     {
+        //         Item.UseItem(newHero);
+        //         string useItem = Item.UseItem(newHero);
+
+        //         if (useItem == "Energy Bar")
+        //         {
+        //             newHero.HealthUp(newHero);
+        //             Console.WriteLine("--------------------------------");
+        //             Console.WriteLine("Energy bar restores health by 20 points.");
+        //             Console.WriteLine("Health: " + newHero.Health);
+        //             Console.WriteLine("--------------------------------");
+        //             McClane.ExploreBigCat(newHero);
+        //         }
+        //         else if (useItem == "Cat Food") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Walkie-Talkie") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Bear-Mace") 
+        //         {
+
+        //         }
+        //         else if (useItem == "note") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Blow-Dart") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Orange Chicken") 
+        //         {
+
+        //         }
+        //         else
+        //         {
+        //             Console.WriteLine("Type the Item Name Exactly to use!");
+        //             McClane.ExploreBigCat(newHero);
+        //         }
+        //     }
+        // }
+        // public void ExploreGiftShop(McClane newHero)
+        // {
+        //     Console.WriteLine("MCCLANE: What should we do?");
+        //     Console.WriteLine("--------------------------------");
+        //     Console.WriteLine("1. Use an Item");
+        //     Console.WriteLine("2. Fight the Lion");
+        //     Console.WriteLine("3. Sneak up on the Tiger");
+        //     Console.WriteLine("4. Leave Big Cat Exhibit");
+        //     Console.WriteLine("--------------------------------");
+        //     string input = Console.ReadLine();
+
+        //     if (input == "1")
+        //     {
+        //         Item.UseItem(newHero);
+        //         string useItem = Item.UseItem(newHero);
+
+        //         if (useItem == "Energy Bar")
+        //         {
+        //             newHero.HealthUp(newHero);
+        //             Console.WriteLine("--------------------------------");
+        //             Console.WriteLine("Energy bar restores health by 20 points.");
+        //             Console.WriteLine("Health: " + newHero.Health);
+        //             Console.WriteLine("--------------------------------");
+        //             McClane.ExploreBigCat(newHero);
+        //         }
+        //         else if (useItem == "Cat Food") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Walkie-Talkie") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Bear-Mace") 
+        //         {
+
+        //         }
+        //         else if (useItem == "note") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Blow-Dart") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Orange Chicken") 
+        //         {
+
+        //         }
+        //         else
+        //         {
+        //             Console.WriteLine("Type the Item Name Exactly to use!");
+        //             McClane.ExploreBigCat(newHero);
+        //         }
+        //     }
+        // }
+        // public void ExploreAquarium(McClane newHero)
+        // {
+        //     Console.WriteLine("MCCLANE: What should we do?");
+        //     Console.WriteLine("--------------------------------");
+        //     Console.WriteLine("1. Use an Item");
+        //     Console.WriteLine("2. Fight the Lion");
+        //     Console.WriteLine("3. Sneak up on the Tiger");
+        //     Console.WriteLine("4. Leave Big Cat Exhibit");
+        //     Console.WriteLine("--------------------------------");
+        //     string input = Console.ReadLine();
+
+        //     if (input == "1")
+        //     {
+        //         Item.UseItem(newHero);
+        //         string useItem = Item.UseItem(newHero);
+
+        //         if (useItem == "Energy Bar")
+        //         {
+        //             newHero.HealthUp(newHero);
+        //             Console.WriteLine("--------------------------------");
+        //             Console.WriteLine("Energy bar restores health by 20 points.");
+        //             Console.WriteLine("Health: " + newHero.Health);
+        //             Console.WriteLine("--------------------------------");
+        //             McClane.ExploreBigCat(newHero);
+        //         }
+        //         else if (useItem == "Cat Food") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Walkie-Talkie") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Bear-Mace") 
+        //         {
+
+        //         }
+        //         else if (useItem == "note") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Blow-Dart") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Orange Chicken") 
+        //         {
+
+        //         }
+        //         else
+        //         {
+        //             Console.WriteLine("Type the Item Name Exactly to use!");
+        //             McClane.ExploreBigCat(newHero);
+        //         }
+        //     }
+        // }
+        // public void ExploreAtrium(McClane newHero)
+        // {
+        //     Console.WriteLine("MCCLANE: What should we do?");
+        //     Console.WriteLine("--------------------------------");
+        //     Console.WriteLine("1. Use an Item");
+        //     Console.WriteLine("2. Fight the Lion");
+        //     Console.WriteLine("3. Sneak up on the Tiger");
+        //     Console.WriteLine("4. Leave Big Cat Exhibit");
+        //     Console.WriteLine("--------------------------------");
+        //     string input = Console.ReadLine();
+
+        //     if (input == "1")
+        //     {
+        //         Item.UseItem(newHero);
+        //         string useItem = Item.UseItem(newHero);
+
+        //         if (useItem == "Energy Bar")
+        //         {
+        //             newHero.HealthUp(newHero);
+        //             Console.WriteLine("--------------------------------");
+        //             Console.WriteLine("Energy bar restores health by 20 points.");
+        //             Console.WriteLine("Health: " + newHero.Health);
+        //             Console.WriteLine("--------------------------------");
+        //             McClane.ExploreAtrium(newHero);
+        //         }
+        //         else if (useItem == "Cat Food") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Walkie-Talkie") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Bear-Mace") 
+        //         {
+
+        //         }
+        //         else if (useItem == "note") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Blow-Dart") 
+        //         {
+
+        //         }
+        //         else if (useItem == "Orange Chicken") 
+        //         {
+
+        //         }
+        //         else
+        //         {
+        //             Console.WriteLine("Type the Item Name Exactly to use!");
+        //             McClane.ExploreBigCat(newHero);
+        //         }
+        //     }
+        // }
     }
 }
+
 

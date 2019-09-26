@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using rpg.DIEHARD;
 
-namespace rpg
+namespace rpg.DIEHARD
 {
     public class Program
     {
