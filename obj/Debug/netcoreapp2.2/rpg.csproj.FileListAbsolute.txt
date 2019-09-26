@@ -1,0 +1,11 @@
+/Users/Guest/Desktop/rpg/obj/Debug/netcoreapp2.2/rpg.csprojAssemblyReference.cache
+/Users/Guest/Desktop/rpg/obj/Debug/netcoreapp2.2/rpg.csproj.CoreCompileInputs.cache
+/Users/Guest/Desktop/rpg/obj/Debug/netcoreapp2.2/rpg.AssemblyInfoInputs.cache
+/Users/Guest/Desktop/rpg/obj/Debug/netcoreapp2.2/rpg.AssemblyInfo.cs
+/Users/Guest/Desktop/rpg/bin/Debug/netcoreapp2.2/rpg.deps.json
+/Users/Guest/Desktop/rpg/bin/Debug/netcoreapp2.2/rpg.runtimeconfig.json
+/Users/Guest/Desktop/rpg/bin/Debug/netcoreapp2.2/rpg.runtimeconfig.dev.json
+/Users/Guest/Desktop/rpg/bin/Debug/netcoreapp2.2/rpg.dll
+/Users/Guest/Desktop/rpg/bin/Debug/netcoreapp2.2/rpg.pdb
+/Users/Guest/Desktop/rpg/obj/Debug/netcoreapp2.2/rpg.dll
+/Users/Guest/Desktop/rpg/obj/Debug/netcoreapp2.2/rpg.pdb
