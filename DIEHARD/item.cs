@@ -26,7 +26,7 @@ namespace rpg.DIEHARD
         public static string UseItem(McClane newHero)
         {
             Console.WriteLine("--------------------------------");
-
+            Console.WriteLine("Current Items:");
             foreach (string item in newHero.Items)
             {
             Console.WriteLine(item);

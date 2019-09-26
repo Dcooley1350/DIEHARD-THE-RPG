@@ -104,7 +104,7 @@ namespace rpg.DIEHARD
             }
             else if (zooExplore =="6")
             {
-                // McClane.Navigation(newHero);
+                McClane.Navigation(newHero);
             }
             else
             {
@@ -134,6 +134,7 @@ namespace rpg.DIEHARD
 
         public void FoundAnimals(McClane newHero)
         {
+            Console.WriteLine("Animals Found:");
             foreach (string animals in newHero.AnimalsFound)
             {
                 Console.WriteLine(animals);
