@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Guest/Desktop/rpg/rpg.csproj",
+      "projectUniqueName": "/Users/Guest/Desktop/DIEHARD-THE-RPG/rpg.csproj",
       "projectName": "rpg",
-      "projectPath": "/Users/Guest/Desktop/rpg/rpg.csproj",
+      "projectPath": "/Users/Guest/Desktop/DIEHARD-THE-RPG/rpg.csproj",
       "packagesPath": "/Users/Guest/.nuget/packages/",
-      "outputPath": "/Users/Guest/Desktop/rpg/obj/",
+      "outputPath": "/Users/Guest/Desktop/DIEHARD-THE-RPG/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
