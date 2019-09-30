@@ -96,18 +96,41 @@ namespace rpg.DIEHARD
             }
             else if (zooExplore =="2")
             {
+                if(newHero.RemainingAnimals.Contains("Henry The Hippo"))
+                {
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine("**You run towards the Food Court. As you enter, you see John duck in front of you. Before you can react, Todd the Giant Todd has latched onto your face, spraying you with his toady venom. (-20 Health)**");
                 Console.WriteLine("**Todd the Giant Toad has been added to your Backpack.**");
                 newHero.Items.Add("Todd The Giant Toad");
                 Console.WriteLine("**Todd the Giant Toad has been added to your Found Animals list.**");
                 newHero.RemainingAnimals.Remove("Todd The Giant Toad");
-
+                newHero.HealthDown(newHero);
+                Console.WriteLine(newHero.Name +"'s Health: " + newHero.Health);
                 McClane.ExploreFoodCourt(newHero);
+                }
+                else
+                {
+                Console.WriteLine("MCCLANE: Nothing Left to do there " + newHero.Name + "! Let's look somewhere else.");
+                McClane.ExploreZoo(newHero);                   
+                }
             }
             else if (zooExplore =="3")
             {
-                // McClane.ExploreGiftShop(newHero);
+                if(newHero.RemainingAnimals.Contains("Elizabeth The Elephant"))
+                {
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine("**You and John creep toward the gift shop, hearing quite a ruckus from inside.**");
+                Console.WriteLine("JOHN MCCLANE: I've heard of a bull in a China shop... but an elephant in the gift shop?! I'm getting too old for this.");
+                Console.WriteLine("**As you and John take cover just inside the gift shop, Elizabeth the Elephant trundles around knocking things over, pondering her own likeness in stuffed animal form.**");
+                newHero.Items.Add("Toy Fishing Rod");
+                Console.WriteLine("JOHN MCCLANE: Thats one curious elephant. How we going to get this one back to its cage? Got anything to bait it with?");
+                McClane.ExploreGiftShop(newHero);
+                }
+                else
+                {
+                Console.WriteLine("MCCLANE: Nothing Left to do there " + newHero.Name + "! Let's look somewhere else.");
+                McClane.ExploreZoo(newHero);                   
+                }
             }
             else if (zooExplore =="4")
             {
@@ -318,63 +341,75 @@ namespace rpg.DIEHARD
             McClane.ExploreFoodCourt(newHero);
             }
         }
-        // public void ExploreGiftShop(McClane newHero)
-        // {
-        //     Console.WriteLine("MCCLANE: What should we do?");
-        //     Console.WriteLine("--------------------------------");
-        //     Console.WriteLine("1. Use an Item");
-        //     Console.WriteLine("2. Fight the Lion");
-        //     Console.WriteLine("3. Sneak up on the Tiger");
-        //     Console.WriteLine("4. Leave Big Cat Exhibit");
-        //     Console.WriteLine("--------------------------------");
-        //     string input = Console.ReadLine();
+        public static void ExploreGiftShop(McClane newHero)
+        {
+            Console.WriteLine("MCCLANE: What should we do?");
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("1. Use an Item.");
+            Console.WriteLine("2. Grab the Kid's Fishing Rod.");
+            Console.WriteLine("3. Grab the Novelty Cat Ears Hat.");
+            Console.WriteLine("4. Leave the Gift Shop.");
+            Console.WriteLine("--------------------------------");
+            string input = Console.ReadLine();
 
-        //     if (input == "1")
-        //     {
-        //         
-        //         string useItem = Item.UseItem(newHero);
+            if (input == "1")
+            {
+                
+                string useItem = Item.UseItem(newHero);
 
-        //         if (useItem == "Energy Bar")
-        //         {
-        //             newHero.HealthUp(newHero);
-        //             Console.WriteLine("--------------------------------");
-        //             Console.WriteLine("Energy bar restores health by 20 points.");
-        //             Console.WriteLine("Health: " + newHero.Health);
-        //             Console.WriteLine("--------------------------------");
-        // newHero.Items.Remove("Can of Cat Food");
-        //             McClane.ExploreBigCat(newHero);
-        //         }
-        //         else if (useItem == "Cat Food") 
-        //         {
+                if (useItem == "Energy Bar")
+                {
+                    newHero.HealthUp(newHero);
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("Energy bar restores health by 20 points.");
+                    Console.WriteLine("Health: " + newHero.Health);
+                    Console.WriteLine("--------------------------------");
+                    McClane.ExploreGiftShop(newHero);
+                }
 
-        //         }
-        //         else if (useItem == "Walkie-Talkie") 
-        //         {
-
-        //         }
-        //         else if (useItem == "Bear-Mace") 
-        //         {
-
-        //         }
-        //         else if (useItem == "note") 
-        //         {
-
-        //         }
-        //         else if (useItem == "Blow-Dart") 
-        //         {
-
-        //         }
-        //         else if (useItem == "Orange Chicken") 
-        //         {
-
-        //         }
-        //         else
-        //         {
-        //             Console.WriteLine("Type the Item Name Exactly to use!");
-        //             McClane.ExploreBigCat(newHero);
-        //         }
-        //     }
-        // }
+                else if (useItem == "Orange Chicken") 
+                {
+                    Console.WriteLine("**You pull the styrofoam container of Orange Chicken out of your bag and heft it like a grenade toward the Elephant.**");
+                    Console.WriteLine("JOHN MCCLANE: WHAT ARE YOU DOING YOU CRAZY BASTARD?! ELEPHANTS HATE ORANGE CHICKEN! THEY LOVE KUNG POW BEEF!!");
+                    Console.WriteLine("**The Elephant lowers it's head to ponder the Orange Chicken. It promply throws it's head back and trumpets in a fit of rage. It begins rampaging around, it runs back to it's safe space in the elephant enclosure but not before knocking you and John over and stomping you a few times. You lose 20 Health");
+                    newHero.Items.Remove("Orange Chicken");
+                    newHero.HealthDown(newHero);
+                    Console.WriteLine("Health: " + newHero.Health);
+                    McClane.ExploreZoo(newHero);
+                }
+                else
+                {
+                    Console.WriteLine("**Item uneffective in this situation.**");
+                    McClane.ExploreGiftShop(newHero);
+                }
+            }
+            else if (input == "2")
+            {
+                Console.WriteLine("**You Grab the Kids Fishing Rod and strap it to your backpack.**");
+                Console.WriteLine("JOHN MCCLANE: Good Call, " +newHero.Name+ ". I saw an Aquarium back there and we may need to wrangle something.");
+                Console.WriteLine("**Kids Fishing Rod has been added to BackPack.");
+                newHero.Items.Add("Kids Fishing Rod");
+                McClane.ExploreGiftShop(newHero);
+            }
+            else if (input == "3")
+            {
+                Console.WriteLine("**You grab the Novelty Cat Ears Hat and put it on.**");
+                Console.WriteLine("JOHN MCCLANE: You look like a fucking idiot.");
+                Console.WriteLine("**McClane punches you in the face. You lose 20 health.");
+                newHero.HealthDown(newHero);
+                Console.WriteLine("Health: " + newHero.Health);
+                McClane.ExploreGiftShop(newHero);
+            }
+            else if (input == "4")
+            {
+                McClane.ExploreZoo(newHero);
+            }
+            else
+            {
+            Console.WriteLine("MCCLANE: Quit wasting time " + newHero.Name + "! Enter a valid number!");
+            McClane.ExploreGiftShop(newHero);
+            }
+        }
         // public void ExploreAquarium(McClane newHero)
         // {
         //     Console.WriteLine("MCCLANE: What should we do?");
